@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FitGether</string>
+    <string name="screenOneMainText">Etkinlikleri keşfet, sporla buluş!</string>
+    <string name="screenOneExpText">FitGather ile spor etkinlikleri dünyasına adım atın. İstediğiniz spor etkinliğini bulabilir hatta kendi etkinliğinizi bile oluşturabilirsiniz.</string>
+    <string name="screenTwoMainText">Spor yapmanın keyfini toplulukla çıkarın!</string>
+    <string name="screenTwoExpText">FitGather, topluluk etkinlikleriyle spor yapmanın keyfini artırıyor. Eğlenceli bir gün geçirirken aynı aktiviteleri paylaşan insanlarla tanışın.</string>
+    <string name="screenThreeMainText">Spor ve eğlenceyi bir araya getirmek için Fitgather’a katıl!</string>
+    <string name="registerMainText">Bir hesap oluşturun</string>
+    <string name="registerExpText">Hesap oluşturarak Fitgather topluluğuna katılın!</string>
+</resources>

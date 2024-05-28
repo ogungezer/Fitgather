@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    tools:context=".view.RegisterFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registerMainText"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="#1C1C1C"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registerExpText"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="#676666"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kullanıcı Adı"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxStrokeColor="@color/green_main"
+            app:counterMaxLength="14"
+            app:cursorColor="@color/green_main"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_error"
+            app:hintTextColor="@color/green_main">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameEdtTxt"
+                android:layout_width="match_parent"
+                android:drawableEnd="@drawable/ic_person"
+                android:maxLines="1"
+                android:layout_height="50dp"
+                android:textSize="15dp"
+                android:maxLength="14"
+                android:textColor="#000000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="İsim"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxStrokeColor="@color/green_main"
+            app:counterMaxLength="30"
+            app:cursorColor="@color/green_main"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_error"
+            app:hintTextColor="@color/green_main">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEdtTxt"
+                android:layout_width="match_parent"
+                android:drawableEnd="@drawable/ic_pen"
+                android:maxLength="30"
+                android:layout_height="50dp"
+                android:textSize="15dp"
+                android:maxLines="1"
+                android:textColor="#000000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxStrokeColor="@color/green_main"
+            app:cursorColor="@color/green_main"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_error"
+            app:hintTextColor="@color/green_main">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEdtTxt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="15dp"
+                android:drawableEnd="@drawable/ic_email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textColor="#000000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Şifre"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxStrokeColor="@color/green_main"
+            app:counterMaxLength="20"
+            app:cursorColor="@color/green_main"
+            app:endIconMode="password_toggle"
+            app:endIconMinSize="60dp"
+            app:endIconTint="#494949"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_error"
+            app:hintTextColor="@color/green_main">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEdtTxt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="15dp"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:maxLength="20"
+                android:textColor="#000000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Telefon"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxStrokeColor="@color/green_main"
+            app:counterMaxLength="15"
+            app:cursorColor="@color/green_main"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_error"
+            app:hintTextColor="@color/green_main"
+            app:prefixText="+90">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneEdtTxt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="15dp"
+                android:drawableEnd="@drawable/ic_phone"
+                android:drawablePadding="5dp"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:maxLength="15"
+                android:textColor="#000000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/birthInputLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                app:boxStrokeColor="@color/green_main"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:cursorColor="@color/green_main"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error"
+                app:hintTextColor="@color/green_main">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/birthEdtTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="15dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:maxLines="1"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:focusable="false"
+                    android:hint="Doğum Tarihi"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <android.widget.RadioButton
+                    android:id="@+id/radioBtnWomen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:button="@drawable/radiobtn_selector"
+                    android:text="Kadın" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/radioBtnMen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:button="@drawable/radiobtn_selector"
+                    android:text="Erkek" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/onboarding_button_green"
+            android:fontFamily="@font/inter_semibold"
+            android:gravity="center"
+            android:text="FITGATHER'A KATIL!"
+            android:textColor="@color/white"
+            android:layout_marginBottom="14dp"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:layout_marginEnd="6dp"
+                android:text="Zaten bir hesabın mı var?"/>
+            <TextView
+                android:id="@+id/loginTxtBtn"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:layout_height="wrap_content"
+                android:text="Giriş yap"
+                android:textColor="@color/green_main"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

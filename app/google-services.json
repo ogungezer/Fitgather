@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "890472228481",
+    "project_id": "fitgether-c0eeb",
+    "storage_bucket": "fitgether-c0eeb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890472228481:android:fc7b72d3d5e8b561f2cf80",
+        "android_client_info": {
+          "package_name": "com.example.fitgether"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxalKKDNTf_z4scTsHVbfDUqkiVGFW6_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

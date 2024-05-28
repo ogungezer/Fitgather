@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="screenThreeMainText">Spor ve eğlenceyi bir araya getirmek için Fitgather’a katıl!</string>
+    <string name="registerMainText">Bir hesap oluşturun</string>
+    <string name="registerExpText">Hesap oluşturarak Fitgather topluluğuna katılın!</string>
+</resources>
