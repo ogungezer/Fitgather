@@ -3,7 +3,7 @@
     <style name="Base.Theme.FitGether" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/black</item>
     </style>
 
     <style name="Theme.App.Splash" parent="Theme.SplashScreen">
@@ -12,10 +12,12 @@
         <item name="windowSplashScreenBackground">#13C871</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splashlogo</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.FitGether</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/black</item>
+
     </style>
-    
 
-
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/login_box_stroke</item>
+    </style>
 
 </resources>

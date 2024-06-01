@@ -1,4 +1,4 @@
-package com.example.fitgether.onboarding
+package com.example.fitgether.presentation.onboarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,12 +9,13 @@ import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.viewpager2.widget.ViewPager2
 import com.example.fitgether.R
-import com.example.fitgether.onboarding.screens.FirstScreen
-import com.example.fitgether.onboarding.screens.SecondScreen
-import com.example.fitgether.onboarding.screens.ThirdScreen
+import com.example.fitgether.presentation.onboarding.screens.FirstScreen
+import com.example.fitgether.presentation.onboarding.screens.SecondScreen
+import com.example.fitgether.presentation.onboarding.screens.ThirdScreen
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OnboardingFragment : Fragment() {
 
     override fun onCreateView(
@@ -40,6 +41,11 @@ class OnboardingFragment : Fragment() {
         dotsIndicator.attachTo(pager)
 
         return view
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     }
 
 

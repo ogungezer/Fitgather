@@ -7,4 +7,6 @@
     <string name="screenThreeMainText">Spor ve eğlenceyi bir araya getirmek için Fitgather’a katıl!</string>
     <string name="registerMainText">Bir hesap oluşturun</string>
     <string name="registerExpText">Hesap oluşturarak Fitgather topluluğuna katılın!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

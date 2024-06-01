@@ -1,4 +1,4 @@
-package com.example.fitgether.onboarding.screens
+package com.example.fitgether.presentation.onboarding.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

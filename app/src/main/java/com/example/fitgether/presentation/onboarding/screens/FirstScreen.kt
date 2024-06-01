@@ -1,4 +1,4 @@
-package com.example.fitgether.onboarding.screens
+package com.example.fitgether.presentation.onboarding.screens
 
 import android.content.Context
 import android.os.Bundle

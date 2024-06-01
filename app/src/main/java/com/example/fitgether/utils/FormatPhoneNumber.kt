@@ -32,7 +32,7 @@ class FormatPhoneNumber(private val phoneText : TextInputEditText) : TextWatcher
             isFormatting = false
         }
     }
-    //5383826129
+
     private fun formatPhoneNumber(phoneNumber: String): String {
         return if(phoneNumber.length >=9){
             regexOne.replace(phoneNumber, "($1) $2 $3 $4")
