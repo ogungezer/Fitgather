@@ -7,6 +7,33 @@
     <string name="screenThreeMainText">Spor ve eğlenceyi bir araya getirmek için Fitgather’a katıl!</string>
     <string name="registerMainText">Bir hesap oluşturun</string>
     <string name="registerExpText">Hesap oluşturarak Fitgather topluluğuna katılın!</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="API_KEY">AIzaSyAUaktuC46ztGO1E4XamFKEnLrhbl-DKeM</string>
+    <string name="user_agreement"> <font color="#13C871">Kullanıcı Sözleşmesi</font>ni okudum kabul ediyorum.</string>
+
+
+
+    <string-array name="Categories">
+        <item>Doğa Yürüyüşü,Trekking</item>
+        <item>Tırmanma ve Kaya Tırmanışı</item>
+        <item>Bisiklet Turları</item>
+        <item>Koşu ve Maraton</item>
+        <item>Su Sporları</item>
+        <item>Su Altı Sporları</item>
+        <item>Kamp ve Kampçılık Aktiviteleri</item>
+        <item>Yoga ve Fitness</item>
+        <item>Kış Sporları</item>
+        <item>Takım Sporları ve Etkinlikler</item>
+        <item>Açık Hava Etkinlikleri</item>
+        <item>Rüzgar ve Uçuş Sporları</item>
+        <item>Diğer</item>
+    </string-array>
+
+
+    <string-array name="Genders">
+        <item>Kadın</item>
+        <item>Erkek</item>
+        <item>Fark etmez</item>
+    </string-array>
+
 </resources>

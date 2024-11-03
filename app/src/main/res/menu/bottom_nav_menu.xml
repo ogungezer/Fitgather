@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/homeBottom"
+        android:icon="@drawable/ic_home"
+        android:title="Ana Sayfa" />
+
+    <item android:id="@+id/exploreBottom"
+        android:icon="@drawable/ic_explore"
+        android:title="Keşfet" />
+
+    <item android:id="@+id/fabBottom"
+        android:title=""
+        android:enabled="false"/>
+
+    <item android:id="@+id/calendarBottom"
+        android:icon="@drawable/ic_calendar_bottom"
+        android:title="Takvim" />
+
+    <item android:id="@+id/profileBottom"
+        android:icon="@drawable/ic_account"
+        android:title="Profil" />
+
+</menu>

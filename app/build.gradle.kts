@@ -6,6 +6,8 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+
 }
 
 android {
@@ -45,11 +47,14 @@ android {
 
 dependencies {
     val nav_version = "2.7.7"
-    val lifecycle_version = "2.8.1"
+    val lifecycle_version = "2.8.2"
+    val fragment_version = "1.8.0"
 
+    implementation("androidx.activity:activity-ktx:1.9.0")
     implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.13.0-alpha03")
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
@@ -60,7 +65,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
     //Firebase Auth
     implementation("com.google.firebase:firebase-auth")
     //Firebase Firestore
@@ -77,4 +82,19 @@ dependencies {
     //Dagger-Hilt
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
+    //LocationProvider
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    //StateProgressBar
+    implementation("com.github.shuhart:stepview:1.5.1")
+    //GoogleMapsApi
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    //PlacesApiGoogle
+    implementation("com.google.maps.android:places-ktx:3.2.0")
+    //CardView
+    implementation("androidx.cardview:cardview:1.0.0")
+    //RecyclerView
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+
+
 }

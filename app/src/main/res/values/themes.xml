@@ -3,7 +3,6 @@
     <style name="Base.Theme.FitGether" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="android:navigationBarColor">@color/black</item>
     </style>
 
     <style name="Theme.App.Splash" parent="Theme.SplashScreen">
@@ -12,12 +11,50 @@
         <item name="windowSplashScreenBackground">#13C871</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splashlogo</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.FitGether</item>
-        <item name="android:navigationBarColor">@color/black</item>
 
     </style>
 
     <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/login_box_stroke</item>
+    </style>
+
+    <style name="Theme.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/green_main</item>
+    </style>
+    
+    <style name="fabButtonRounded">
+        <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="AppRegisterDatePicker" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">@color/green_main</item>
+        <item name="android:datePickerMode">calendar</item>
+    </style>
+
+    <style name="TimePicker" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">@color/green_main</item>
+        <item name="android:timePickerMode">clock</item>
+    </style>
+
+    <style name="CheckBoxButtonBackground" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/green_main</item>
+    </style>
+
+    <style name="SliderStyle" parent="@style/Widget.MaterialComponents.Slider">
+        <item name="labelStyle">@style/TooltipStyle</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Slider</item>
+    </style>
+
+    <style name="TooltipStyle" parent="Widget.MaterialComponents.Tooltip">
+        <!-- background color of the Tooltip -->
+        <item name="backgroundTint">#FFEB3B</item>
+    </style>
+
+    <style name="ThemeOverlay.Slider" parent="">
+        <!-- color used by the text in the Tooltip -->
+        <item name="colorOnPrimary">@color/green_main</item>
+        <item name="colorOnBackground">@color/white</item>
+        <item name="colorSurface">@color/black</item>
     </style>
 
 </resources>

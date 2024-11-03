@@ -1,40 +1,36 @@
 package com.example.fitgether.presentation.view
 
 import android.app.DatePickerDialog
-import android.app.Dialog
-import android.content.DialogInterface
-import android.graphics.Rect
+import android.os.Build
 import android.os.Bundle
-import android.text.TextWatcher
-import android.text.method.TextKeyListener.Capitalize
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
+import android.view.WindowInsets
+import android.view.animation.AnimationUtils
 import android.widget.RadioButton
-import android.widget.ScrollView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.text.util.LocalePreferences.CalendarType
-import androidx.core.text.util.LocalePreferences.CalendarType.CalendarTypes
+import androidx.core.view.marginTop
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.fitgether.R
-import com.example.fitgether.databinding.FragmentLoginBinding
 import com.example.fitgether.databinding.FragmentRegisterBinding
 import com.example.fitgether.presentation.viewmodel.RegisterViewmodel
+import com.example.fitgether.utils.AuthErrorType
 import com.example.fitgether.utils.FormatPhoneNumber
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
-import com.google.firebase.firestore.auth.User
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
+
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
@@ -42,16 +38,18 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
     private val registerViewmodel by viewModels<RegisterViewmodel>()
-    private lateinit var auth : FirebaseAuth
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentRegisterBinding.inflate(inflater,container,false)
         binding.phoneInputLayout.prefixTextView.textSize = 12f
         activity?.window?.navigationBarColor = ContextCompat.getColor(requireContext(), R.color.white)
+
+        errorAuthObserver()
 
         val calendar = Calendar.getInstance()
         val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
@@ -74,6 +72,7 @@ class RegisterFragment : Fragment() {
         binding.birthEdtTxt.setOnClickListener {
             val datePickerDialog = DatePickerDialog(
                 inflater.context,
+                R.style.AppRegisterDatePicker,
                 datePicker,
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
@@ -82,11 +81,10 @@ class RegisterFragment : Fragment() {
             datePickerDialog.datePicker.maxDate = myCalendar.timeInMillis
 
 
-            datePickerDialog.setButton(DatePickerDialog.BUTTON_NEGATIVE, "İptal") { dialog, _ ->
-                dialog.dismiss()
-            }
-
             datePickerDialog.show()
+
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(inflater.context,R.color.green_main))
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(inflater.context,R.color.green_main))
         }
 
 
@@ -120,6 +118,7 @@ class RegisterFragment : Fragment() {
                 && binding.passwordInputLayout.error == null && binding.birthInputLayout.error == null && gender != ""){
                 when(registerViewmodel.registerInputControl(username,email,phone,name,password,birthday,gender)){
                     true -> {
+                        binding.progressBarRegister.visibility = View.VISIBLE
                         val newUser = com.example.fitgether.data.model.User(
                             userName = username,
                             gender = gender,
@@ -128,43 +127,47 @@ class RegisterFragment : Fragment() {
                             birthday = birthday,
                             phoneNumber = phone
                         )
-                        registerViewmodel.registerUserAuth(email, password, newUser)
-                        Toast.makeText(requireContext(),"Kullanıcı kaydı başarılı", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                        registerViewmodel.registerUserAuth(email, password, newUser){ isUserUnique ->
+                            if(isUserUnique){
+                                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                            }
+                        }
                     }
                     false -> {
-                        Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun.", Toast.LENGTH_SHORT).show()
                     }
                 }
 
             } else {
-                Toast.makeText(requireContext(), "Lütfen girdileri gözden geçirin.", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Lütfen girdileri gözden geçirin.", Toast.LENGTH_SHORT).show()
             }
 
         }
 
         return binding.root
     }
-
+//12 ,
     private fun phoneControl() {
         binding.phoneEdtTxt.doOnTextChanged { text, start, before, count ->
             text?.let {
-                if(text.length > 4){
-                    if(text[1] == '0'){
+                if (text.length > 4) {
+                    if (text[1] == '0') {
                         binding.phoneInputLayout.error = "Numaranızı başında (0) olmadan giriniz."
-                    }else if (text[1] != '5'){
+                    } else if (text[1] != '5') {
                         binding.phoneInputLayout.error = "Lütfen geçerli bir numara giriniz."
-                    }else{
+                    } else if (text.length < 15) {
+                        binding.phoneInputLayout.error = "Telefon numaranızı eksiksiz tuşlayınız."
+                    } else {
                         binding.phoneInputLayout.error = null
                     }
-                }else if(text.isNotEmpty()) {
-                    if(text[0] == '0'){
+                } else if (text.isNotEmpty()) {
+                    if (text[0] == '0') {
                         binding.phoneInputLayout.error = "Numaranızı başında (0) olmadan giriniz."
-                    }else if (text[0] != '5'){
+                    } else if (text[0] != '5') {
                         binding.phoneInputLayout.error = "Lütfen geçerli bir numara giriniz."
+                    } else {
+                        binding.phoneInputLayout.error = null
                     }
-                }else{
-                    binding.phoneInputLayout.error = null
                 }
             }
         }
@@ -244,6 +247,61 @@ class RegisterFragment : Fragment() {
     private fun formatDate(calendar: Calendar) {
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         binding.birthEdtTxt.setText(sdf.format(calendar.time))
+    }
+
+    private fun errorAuthObserver(){
+        registerViewmodel.errorState.observe(viewLifecycleOwner, Observer {errorType ->
+            val animationFadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in_anim)
+            val animationFadeOut= AnimationUtils.loadAnimation(requireContext(), R.anim.fade_out_anim)
+            when (errorType) {
+                AuthErrorType.USERNAME_ERROR -> {
+                    binding.registerBtn.isClickable = false
+                    binding.progressBarRegister.visibility = View.INVISIBLE
+                    binding.authLoginErrorMsg.visibility = View.VISIBLE
+                    binding.authLoginErrorMsg.startAnimation(animationFadeIn)
+                    binding.authLoginErrorMsg.text = "Bu kullanıcı adına sahip kullanıcı mevcut."
+                    binding.authLoginErrorMsg.setBackgroundResource(R.drawable.auth_error_message_bg)
+                }
+                AuthErrorType.EMAIL_ERROR -> {
+                    binding.registerBtn.isClickable = false
+                    binding.progressBarRegister.visibility = View.INVISIBLE
+                    binding.authLoginErrorMsg.visibility = View.VISIBLE
+                    binding.authLoginErrorMsg.startAnimation(animationFadeIn)
+                    binding.authLoginErrorMsg.text = "Bu emaile sahip kullanıcı mevcut."
+                    binding.authLoginErrorMsg.setBackgroundResource(R.drawable.auth_error_message_bg)
+                }
+                AuthErrorType.PHONE_ERROR -> {
+                    binding.registerBtn.isClickable = false
+                    binding.progressBarRegister.visibility = View.INVISIBLE
+                    binding.authLoginErrorMsg.visibility = View.VISIBLE
+                    binding.authLoginErrorMsg.startAnimation(animationFadeIn)
+                    binding.authLoginErrorMsg.text = "Bu numaraya sahip kullanıcı mevcut."
+                    binding.authLoginErrorMsg.setBackgroundResource(R.drawable.auth_error_message_bg)
+                }
+                AuthErrorType.SERVICE_ERROR -> {
+                    binding.registerBtn.isClickable = false
+                    binding.progressBarRegister.visibility = View.INVISIBLE
+                    binding.authLoginErrorMsg.visibility = View.VISIBLE
+                    binding.authLoginErrorMsg.startAnimation(animationFadeIn)
+                    binding.authLoginErrorMsg.text = "Bir hata meydana geldi."
+                    binding.authLoginErrorMsg.setBackgroundResource(R.drawable.auth_error_message_bg)
+                }
+                AuthErrorType.NO_ERROR -> {
+                    binding.registerBtn.isClickable = false
+                    binding.progressBarRegister.visibility = View.INVISIBLE
+                    binding.authLoginErrorMsg.visibility = View.VISIBLE
+                    binding.authLoginErrorMsg.startAnimation(animationFadeIn)
+                    binding.authLoginErrorMsg.text = "Başarıyla kayıt olundu!"
+                    binding.authLoginErrorMsg.setBackgroundResource(R.drawable.auth_correct_message_bg)
+                }
+                else -> {
+                    binding.registerBtn.isClickable = true
+                    binding.authLoginErrorMsg.visibility = View.GONE
+                    binding.authLoginErrorMsg.startAnimation(animationFadeOut)
+                }
+
+            }
+        })
     }
 
 

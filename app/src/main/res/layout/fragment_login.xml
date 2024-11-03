@@ -31,6 +31,23 @@
     </FrameLayout>
 
     <TextView
+        android:id="@+id/authErrorMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/authErrorTextBg"
+        android:fontFamily="@font/inter_semibold"
+        android:padding="4dp"
+        android:text="Kullanıcı adı veya şifre yanlış."
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,37 +85,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/loginEmailInputLayout"
             style="@style/LoginTextInputLayoutStyle"
             android:layout_width="match_parent"
-            app:boxBackgroundMode="filled"
-            android:textColorHint="@color/white"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:hint="Email"
+            android:paddingBottom="20dp"
+            android:textColorHint="@color/white"
+            app:boxBackgroundMode="filled"
             app:boxCornerRadiusBottomEnd="16dp"
             app:boxCornerRadiusBottomStart="16dp"
-            android:paddingBottom="20dp"
             app:boxCornerRadiusTopEnd="16dp"
             app:boxCornerRadiusTopStart="16dp"
             app:cursorColor="@color/white"
-            app:errorEnabled="true"
-            app:errorTextColor="#F17979"
             app:cursorErrorColor="#F17979"
+            app:errorEnabled="true"
             app:errorIconDrawable="@drawable/ic_error"
+            app:errorTextColor="#F17979"
             app:hintTextColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginEmailEditTxt"
                 android:layout_width="match_parent"
-                android:fontFamily="@font/inter_semibold"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
                 android:drawableEnd="@drawable/ic_email"
                 android:drawableTint="@color/white"
+                android:fontFamily="@font/inter_semibold"
                 android:gravity="center_vertical"
                 android:inputType="textEmailAddress"
-                android:backgroundTint="@android:color/transparent"
                 android:maxLines="1"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp" />
@@ -109,33 +127,32 @@
             style="@style/LoginTextInputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxBackgroundMode="filled"
-            android:textColorHint="@color/white"
             android:gravity="center_vertical"
             android:hint="Şifre"
+            android:textColorHint="@color/white"
             app:boxBackgroundColor="@color/white"
+            app:boxBackgroundMode="filled"
             app:boxCornerRadiusBottomEnd="16dp"
             app:boxCornerRadiusBottomStart="16dp"
             app:boxCornerRadiusTopEnd="16dp"
             app:boxCornerRadiusTopStart="16dp"
             app:counterMaxLength="20"
             app:cursorColor="@color/white"
+            app:cursorErrorColor="#F17979"
             app:endIconMinSize="60dp"
             app:endIconMode="password_toggle"
-            android:paddingBottom="40dp"
             app:endIconTint="#FFFFFF"
-            app:errorTextColor="#F17979"
-            app:cursorErrorColor="#F17979"
             app:errorEnabled="true"
+            app:errorTextColor="#F17979"
             app:hintTextColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginPasswordEdtTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:backgroundTint="@android:color/transparent"
                 android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
                 android:inputType="textPassword"
                 android:maxLength="20"
                 android:maxLines="1"
@@ -148,33 +165,32 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:background="@drawable/login_button_white_bg"
-        android:layout_marginHorizontal="40dp"
+        android:elevation="8dp"
         android:fontFamily="@font/inter_semibold"
         android:gravity="center"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        android:shadowColor="@color/black"
         android:text="Giriş Yap"
+        android:layout_marginTop="25dp"
         android:textAllCaps="false"
         android:textColor="#474747"
-        android:elevation="8dp"
-        android:shadowColor="@color/black"
-        android:outlineSpotShadowColor="@color/black"
-        android:outlineAmbientShadowColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotpasswordTxtBtn" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn">
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -192,5 +208,18 @@
             android:text="Şimdi Kayıt Ol!"
             android:textColor="#FFC107" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/forgotpasswordTxtBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="13sp"
+        android:layout_marginTop="2dp"
+        android:paddingHorizontal="20dp"
+        android:text="Şifremi Unuttum?"
+        android:textColor="#FFC107"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

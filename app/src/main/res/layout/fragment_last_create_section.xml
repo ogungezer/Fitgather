@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="60dp"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.view.createFragments.FirstCreateSection">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="Kişi sınırı ve cinsiyet tercihi"
+                android:textAllCaps="true"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="20sp"
+                android:textColor="@color/green_main" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:text="Etkinliğe katılacak maksimum kişi sayısını belirleyebilirsin."
+                android:fontFamily="@font/inter_light"
+                android:textSize="13sp"
+                android:paddingBottom="4dp"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/genderCategoryTextLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                app:boxStrokeColor="@color/green_main"
+                app:cursorColor="@color/green_main"
+                app:errorEnabled="true"
+                android:layout_marginHorizontal="20dp"
+                app:errorIconDrawable="@drawable/ic_error"
+                android:layout_marginTop="16dp"
+                app:hintTextColor="@color/green_main"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                android:layout_height="match_parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/genderCategoryCompleteText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:dropDownHeight="wrap_content"
+                    android:inputType="none"
+                    android:hint="Cinsiyet Tercihi"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kişi sınırı:"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:textColor="#4E4E4E"
+                    android:layout_gravity="center"/>
+
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/rangeSlider"
+                    style="@style/SliderStyle"
+                    app:trackHeight="5dp"
+                    app:trackColorActive="@color/green_main"
+                    app:trackColorInactive="#5613C871"
+                    app:trackStopIndicatorSize="4dp"
+                    android:layout_marginEnd="10dp"
+                    app:trackInsideCornerSize="5dp"
+                    app:thumbTrackGapSize="0dp"
+                    app:thumbColor="@color/green_main"
+                    app:thumbHeight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stepSize="1"
+                    app:tickVisible="false"
+                    android:value="99"
+                    android:valueFrom="5"
+                    android:valueTo="99"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/lastBackButton"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_arrowback" />
+
+
+                <TextView
+                    android:id="@+id/lastCreateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ETKİNLİĞİ OLUŞTUR!"
+                    android:layout_marginStart="20dp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/create_event_button_bg"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/createEventCheckbox"
+                android:background="@android:color/transparent"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"
+                style="@style/CheckBoxButtonBackground"
+                android:text="@string/user_agreement"
+                android:fontFamily="@font/inter_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

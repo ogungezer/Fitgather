@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="backgroundColor">#EFEFEF</color>
     <color name="green_main">#13C871</color>
-    <color name="navBarColor">#DFDFDF</color>
+    <color name="navBarColor">@color/white</color>
+    <color name="authErrorTextBg">#F44336</color>
+    <color name="progressGray">#777777</color>
 </resources>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="15dp"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.view.createFragments.FirstCreateSection">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="Etkinliğin konumunu belirle"
+                android:textAllCaps="true"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="22sp"
+                android:textColor="@color/green_main" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:text="Yapılacak etkinliğin konumunu ister aratarak ister tıklayarak seçebilirsiniz."
+                android:fontFamily="@font/inter_light"
+                android:textSize="13sp"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#A8A8A8"/>
+
+            <FrameLayout
+                android:id="@+id/mapContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#A8A8A8"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:text="Seçilen konum işaretçisinin üzerine tıklayarak açık adres bilgisine ve haritanın üzerinde çıkan iki buton ile yol tarifine ulaşabilirsiniz."
+                android:fontFamily="@font/inter_extralight"
+                android:textSize="12sp"
+                android:textColor="@color/black"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="160dp"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:background="#BCBCBC" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:textAllCaps="true"
+                android:text="Etkinliğinin zamanını belirle"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="22sp"
+                android:textColor="@color/green_main" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:text="Katılmak isteyen kullanıcıları etkinliğinin ne zaman gerçekleşeceği hakkında bilgilendir."
+                android:fontFamily="@font/inter_light"
+                android:textSize="13sp"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/eventDateInputLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="filled"
+                    android:layout_weight="1"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxStrokeColor="@color/green_main"
+                    app:cursorColor="@color/green_main"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:hintTextColor="@color/green_main">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/eventDateEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:focusable="false"
+                        android:hint="Etkinlik Tarihi"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/eventTimeInputLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="filled"
+                    android:layout_weight="1.2"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxStrokeColor="@color/green_main"
+                    app:cursorColor="@color/green_main"
+                    app:errorEnabled="true"
+                    android:layout_marginTop="12dp"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:hintTextColor="@color/green_main">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/eventTimeEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_clock"
+                        android:focusable="false"
+                        android:hint="Etkinlik Saati"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/secondBackButton"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_arrowback" />
+
+
+                <TextView
+                    android:id="@+id/secondCreateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DEVAM ET"
+                    android:layout_marginStart="20dp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@drawable/create_event_button_bg"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

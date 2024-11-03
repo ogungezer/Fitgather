@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.view.CalendarFragment">
+
+    <ImageButton
+        android:id="@+id/backPressButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/back_button_bg"
+        android:padding="2dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.shuhart.stepview.StepView
+        android:id="@+id/stepView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:layout_marginHorizontal="20dp"
+        app:sv_selectedCircleColor="@color/progressGray"
+        app:sv_selectedTextColor="@color/progressGray"
+        app:sv_stepLineWidth="1dp"
+        app:sv_stepPadding="12dp"
+        app:sv_nextTextColor="@color/progressGray"
+        app:sv_nextStepLineColor="#DDDDDD"
+        app:sv_doneCircleColor="@color/green_main"
+        app:sv_doneCircleRadius="14dp"
+        app:sv_selectedCircleRadius="12dp"
+        app:sv_selectedStepNumberColor="@color/white"
+        app:sv_doneStepMarkColor="@color/white"
+        app:sv_stepNumberTextSize="14sp"
+        app:sv_doneTextColor="@color/green_main"
+        app:sv_animationType="Line"
+        app:sv_nextStepCircleEnabled="true"
+        app:sv_nextStepCircleColor="#DDDDDD"
+        app:sv_doneStepLineColor="@color/green_main"
+        app:sv_typeface="@font/inter_regular"
+        app:sv_textSize="12sp"
+        app:sv_textPadding="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/backPressButton" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#AAAAAA"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stepView" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/createEventViewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
